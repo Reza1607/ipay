@@ -1,9 +1,17 @@
+@font-face {
+    font-family: 'Terafik';
+    src: url('fonts/IRTerafik.woff') format('woff');
+}
+
 body {
+    font-family: 'Terafik',"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 400;
+    font-size: 1em;
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
 }
 
 pre, code {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     border: none;
     border-radius: 0;
     background-color: #f9f9f9;
@@ -76,4 +84,7 @@ body.rtl .row-fluid [class*="span"]:first-child {
 
 body.rtl ul, body.rtl ol {
     margin: 0 25px 10px 0;
+}
+body.rtl pre, body.rtl code {
+    direction: ltr !important;
 }

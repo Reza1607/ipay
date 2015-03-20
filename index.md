@@ -1,18 +1,42 @@
 ---
 layout: default
-title: "Jekyll Docs Template"
+title: "پکیج IPay"
 ---
 
-### Get Started
+## پکیج IPay
 
-Start by [creating a new post](http://jekyllrb.com/docs/posts/) one of the categories listed in `_config.yml`. It will appear in the navigation on the left once recompiled. Or use the supplied script to make creating pages easier:
+- [IPay چیست؟](#what-is-ipay)
+- [نصب](#setup)
+- [بانک‌ها و درگاه‌های پشتیبانی کننده](#bank-support)
 
-```bash
-ruby bin/jekyll-page "Some Page Title" ref
+<a name="what-is-ipay"></a>
+### IPay چیست؟
+
+پکیج IPay یک پکیج Composer برای زبان PHP است و در تمام پروژه های PHP قابل استفاده است. این پکیج برای برقراری با درگاه های بانک های مختلف است. با استفاده از این پکیج میتوانید به تمام درگاه هایی که در این پکیج پشتیبانی میشوند با یک API یکسان دسترسی داشته باشید.
+
+این پکیج متن باز است و شما هم میتوانید در توسعه این پکیج همکاری داشته باشید. اگر جای خالی یک بانک یا درگاه را میبینید، یا خودتان دست به کار شوید و آن را به پکیج اضافه کنید، یا اطلاعاتتان را در اختیار ما بگذارید تا بانک مورد نظر شما را نیز به این پکیج اضافه کنیم.
+
+هر گونه خطا و پیشنهادی که داشتید، لطفا در قسمت [Issues](https://github.com/mohsen-shafiee/IPay/issues) سایت Github مطرح کنید.
+
+<a name="setup"></a>
+### نصب
+
+ابتدا کد زیر را به قسمت ```require``` فایل ```composer.json``` پروژه اضافه کنید:
+
+```php
+"mohsen/ipay": "last-stable"
 ```
 
-#### Don't Forget
+سپس دستور ```composer update``` را اجرا کنید. حالا به مستندات نسخه نصب شده پکیج بروید و ادامه کار را دنبال کنید.
 
-- Add your own content to this page (i.e. `index.md`) and change the `title`
-- Change `title` and `subtitle` defined in `config.yml` for your site
-- Set the `baseurl` in `_config.yml` for your repo if deploying to GitHub pages
+#### نکته
+همیشه سعی کنید که آخرین نسخه پکیج را نصب داشته باشید.
+
+<a name="bank-support"></a>
+### بانک‌ها و درگاه‌های پشتیبانی کننده
+
+#### نکته
+لیست زیر همیشه برای آخرین نسخه پکیج است.
+
+* بانک ملت
+* درگاه زرین پال
