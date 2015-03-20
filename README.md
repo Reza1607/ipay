@@ -1,6 +1,3 @@
-IPay
-====
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/bruth/jekyll-docs-template/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
-> A module to connect Iranian Bank
-
-See Documentation in [aparnet.ir](http://aparnet.ir/2633-ipay-package-document)
+Read the docs: http://bruth.github.io/jekyll-docs-template
