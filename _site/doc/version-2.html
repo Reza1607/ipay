@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width">
 
-        <title>پکیج IPay : نسخه 1</title>
+        <title>پکیج IPay : نسخه 2</title>
         <meta name="description" content="مستندات پکیج IPay">
 
         <link href="/ipay/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
@@ -77,38 +77,69 @@
 
                     <div id=content class=span10>
                         <div class=page-header>
-    <h2>نسخه 1
-        <small>مستندات نسخه 1</small>
+    <h2>نسخه 2
+        <small>مستندات نسخه 2</small>
     </h2>
 </div>
 
 <ul>
-<li><a href="#database">ایجاد جدول پکیج درون دیتابیس</a></li>
+<li><a href="#config">فایل تنظیمات پکیج</a></li>
 <li><a href="#mellat">مستندات مخصوص درگاه بانک ملت</a></li>
 <li><a href="#zarinpal">مستندات مخصوص درگاه زرین پال</a></li>
 </ul>
 
-<p><a name="databse"></a></p>
+<p><a name="config"></a></p>
 
-<h3 id="ایجاد-جدول-پکیج-درون-دیتابیس">ایجاد جدول پکیج درون دیتابیس</h3>
+<h3 id="فایل-تنظیمات-پکیج">فایل تنظیمات پکیج</h3>
 
-<p>این نسخه پکیج، از دیتابیس، برای ذخیره لاگ ها و مدیریت اتصال به بانک استفاده میکند. برای اینکار باید جدولی به نام <code>mellat_orders_log</code> بسازید که کد SQL آن در زیر آمده است.</p>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="o">`</span><span class="n">mellat_orders_log</span><span class="o">`</span> <span class="p">(</span>
-<span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
-<span class="o">`</span><span class="n">ref_id</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">COLLATE</span> <span class="n">utf8_unicode_ci</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="o">`</span><span class="n">sale_order_id</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">COLLATE</span> <span class="n">utf8_unicode_ci</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="o">`</span><span class="n">sale_refrences_id</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">COLLATE</span> <span class="n">utf8_unicode_ci</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="o">`</span><span class="n">additional_data</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="k">COLLATE</span> <span class="n">utf8_unicode_ci</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="o">`</span><span class="n">message</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">250</span><span class="p">)</span> <span class="k">COLLATE</span> <span class="n">utf8_unicode_ci</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="o">`</span><span class="k">timestamp</span><span class="o">`</span> <span class="n">datetime</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
-<span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span> <span class="k">COLLATE</span><span class="o">=</span><span class="n">utf8_unicode_ci</span> <span class="n">AUTO_INCREMENT</span><span class="o">=</span><span class="mi">22</span> <span class="p">;</span>
+<p>از نسخه 2 به بعد فایلی به عنوان تنظیمات پکیج IPay وجود دارد. وجود این فایل باعث بهبود بسیار خوبی در استفاده راحتتر از پکیج شده است.</p>
+
+<p>در این فایل شما میتوانید تمام اطلاعات و تنظیمات مورد نیاز برای پکیج را وارد کنید. مسیر پیشفرض فایل در کنار پوشه <code>vendor</code> و با نام <code>ipay.php</code> است، اما شما میتوانید این فایل را در هر مسیری که میخواهید قرار بدهید و آدرس را در هنگام ساخت شی از کلاس به IPay بدهید.</p>
+
+<p>این فایل در نسخه 2 دارای تنظیمات زیر است. شما باید فایل <code>ipay.php</code> را همراه با محتویات زیر در کنار پوشه <code>vendor</code> (یا هر مسیری که میخواهید)ایجاد کنید.</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;database&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;host&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;dbname&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;database_name&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;root&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;xxxxxx&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;create&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span>
+    <span class="p">),</span>
+
+    <span class="s1">&#39;debug&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;status&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+        <span class="s1">&#39;lang&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;fa&#39;</span>
+    <span class="p">),</span>
+
+    <span class="s1">&#39;zarinpal&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;merchant-id&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;callback-url&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;url&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;server&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;germany&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;email&#39;</span>        <span class="o">=&gt;</span> <span class="s1">&#39;email@gmail.com&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;mobile&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;09xxxxxxxxx&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;description&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+
+    <span class="s1">&#39;mellat&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;username&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;username&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;password&#39;</span>     <span class="o">=&gt;</span> <span class="mo">00000000</span><span class="p">,</span>
+        <span class="s1">&#39;terminalId&#39;</span>   <span class="o">=&gt;</span> <span class="mo">0000000</span><span class="p">,</span>
+        <span class="s1">&#39;callback-url&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;url&#39;</span>
+    <span class="p">)</span>
+<span class="p">);</span>
 </code></pre></div>
-<p><a name="mellat"></a></p>
+<p>تنظیمات <code>database</code> برای اتصال به پایگاه داده است. در صورتی که قسمت <code>create</code> فعال (<code>true</code>) باشد، در هر بار استفاده از IPay، پکیج چک میکند که آیا جداول پکیج ایجاد شده است یا خیر، در صورتی که موجود نبودند، خود پکیج به صورت خودکار آنها را نصب میکند. پس توجه داشته باشید که در اولین استفاده از پکیج این گزینه را <code>true</code> کنید.</p>
+
+<p>تنظیمات <code>debug</code> برای فعال سازی محیط تست پکیج است.</p>
+
+<p>تنظیمات <code>zarinpal</code> و <code>mellat</code> برای درگاه های بانک ملت و سایت زرین پال است. توجه داشته باشید که در صورت استفاده از هر کدام از درگاه ها ابتدا تنظیمات آن را به درستی پر کرده باشید.
+<a name="mellat"></a></p>
 
 <h3 id="مستندات-مخصوص-درگاه-بانک-ملت">مستندات مخصوص درگاه بانک ملت</h3>
 
-<p>متدهای زیر به صورت قدم به قدم برای اتصال به بانک و تایید پرداخت کاربر توضیح داده میشود. متدهای کمکی دیگر در انتها توضیح داده میشود.</p>
+<p>متدهای زیر به صورت قدم به قدم برای اتصال به بانک و تایید پرداخت کاربر توضیح داده میشود.</p>
 
 <h4 id="قدم-اول:-منتقل-کردن-کاربر-به-درگاه">قدم اول: منتقل کردن کاربر به درگاه</h4>
 
@@ -119,23 +150,22 @@
 <span class="x">.</span>
 <span class="x">.</span>
 <span class="x">.</span>
-<span class="x">$mellatPay = new IPayMellat($username, $password, $termId);</span>
+<span class="x">$mellatPay = new IPayMellat();</span>
 </code></pre></div>
-<p>در هنگام ساختن یک شیء جدید از کلاس IPayMellat باید نام کاربری، رمز عبور و شماره پایانه ای که بانک به شما داده است را به کلاس بدهید.</p>
+<p>در صورتی که فایل تنظمیات پکیج را در مسیر پیشفرض (کنار پوشه <code>vendor</code> با نام <code>ipay.php</code>) قرار نداده اید و در مسیری دیگر وجود دارد، مسیر آن را به عنوان پارامتر اول به کلاس <code>IPayMellat</code> بدهید.</p>
 
-<ol>
-<li>ست کردن تنظیمات دیتابیس</li>
-</ol>
-
-<p>حالا برای ست کردن تنظیمات دیتابیس در شیء ساخته شده، به صورت زیر کار میکنیم.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$mellatPay-&gt;setDB($server, $dbName, $username, $password);</span>
-</code></pre></div>
 <ol>
 <li>ارسال درخواست اتصال به درگاه بانک ملت</li>
 </ol>
 
-<p>با استفاده از متد <code>sendPayRequest</code> میتوانید درخواست اتصال به سرور بانک را بدهید. این متد دارای دو پارامتر است. پارامتر اول مبلغی است که میخواهید کاربر واریز کند و پارامتر دوم آدرسی است که میخواهید درگاه، کاربر را  پس از انجام عملیات به آن آدرس بازگشت بدهد.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$mellatPay-&gt;sendPayRequest($price, $callbackUrl);</span>
+<p>با استفاده از متد <code>sendPayRequest</code> میتوانید درخواست اتصال به سرور بانک را بدهید. این متد دارای سه پارامتر است که تنها پارامتر اول اجباری است.</p>
+
+<p>پارامتر اول: مبلغی است که میخواهید کاربر واریز کند.</p>
+
+<p>پارامتر دوم (اختیاری): اطلاعات اضافی. این اطلاعات اضافی به سرور بانک فرستاده میشود و بدون هیچ تغییر بازگشت داده میشود.</p>
+
+<p>پارامتر سوم (اختیاری): آدرس بازگشتی. در صورتی که این پارامتر داده نشود، آدرس را از فایل تنظیمات میخواند.</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$mellatPay-&gt;sendPayRequest($amount, $additionalData, $callBackUrl);</span>
 </code></pre></div>
 <ol>
 <li>ریدایرکت کاربر به درگاه</li>
@@ -161,11 +191,14 @@
 <p>پس از اتمام عملیات کاربر در درگاه بانک، کاربر به آدرسی که ما در قدم اول مشخص کردیم منتقل میشود. حالا در این آدرس ما باید چک کنیم که آیا کاربر پرداخت را انجام داده است یا خیر؟</p>
 
 <ol>
-<li>ساخت شیء و ست کردن تنظیمات دیتابیس</li>
+<li>ساخت شیء</li>
 </ol>
-
-<p>در ابتدا باید دو مرحله اول قدم اول را نیز در اینجا تکرار کنیم.</p>
-
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">use IPay\Mellat\IPayMellat;</span>
+<span class="x">.</span>
+<span class="x">.</span>
+<span class="x">.</span>
+<span class="x">$mellatPay = new IPayMellat();</span>
+</code></pre></div>
 <ol>
 <li>چک کردن اینکه کاربر آیا پرداخت را انجام داده است یا خیر؟</li>
 </ol>
@@ -190,17 +223,8 @@
 <span class="x">    return &#39;error&#39;;</span>
 <span class="x">}</span>
 </code></pre></div>
-<p>وسط دو قدم گفته شده در بالا میتوانید کل روند پرداخت بانک ملت را انجام دهید.</p>
+<p>توسط دو قدم گفته شده در بالا میتوانید کل روند پرداخت بانک ملت را انجام دهید.</p>
 
-<h4 id="متدهای-کمکی">متدهای کمکی</h4>
-
-<h5 id="متد-setdebugmode">متد setDebugMode</h5>
-
-<p>توسط این متد میتوانید مشخص کنید که آیا در حالت تست درگاه قرار دارید یا خیر؟ این متد فقط میتواند در قدم اول و بعد از دو مرحله اول صدا زده شود تا کارایی خود را نشان دهد. اگر این متد صدا زده بشود، اگر درگاه به هر خطایی در ارتباط با بانک برخورد کند یک <code>Exception</code> برمیگرداند و شماره خطا و متن خطا بر اساس مستندات بانک ملت را به شما نشان میدهد که در زمان توسعه درگاه میتواند کمک بزرگی به شما باشد. پارامتر اول این تابع میتواند مقدار <code>‘en’</code><code>یا</code><code>‘fa’</code>` را بگیرد. که زبان متن خطا را مشخص میکند.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$mellatPay = new IPayMellat(&#39;site56&#39;, 69202546, 6541369);</span>
-<span class="x">$mellatPay-&gt;setDB(&#39;localhost&#39;, &#39;my_db&#39;, &#39;root&#39;, &#39;5d5sa6d&#39;);</span>
-<span class="x">$mellatPay-&gt;setDebugMode(&#39;fa&#39;);</span>
-</code></pre></div>
 <p><a name="zarinpal"></a></p>
 
 <h3 id="مستندات-مخصوص-درگاه-زرین-پال">مستندات مخصوص درگاه زرین پال</h3>
@@ -216,26 +240,18 @@
 <span class="x">.</span>
 <span class="x">$zarinPay = new IPayZarinpal($merchentId);</span>
 </code></pre></div>
-<p>در هنگام ساختن یک شیء جدید از کلاس IPayZarinpal باید مرچنت کد را که زرین پال به شما داده است را به کلاس بدهید.</p>
+<p>در صورتی که فایل تنظمیات پکیج را در مسیر پیشفرض (کنار پوشه <code>vendor</code> با نام <code>ipay.php</code>) قرار نداده اید و در مسیری دیگر وجود دارد، مسیر آن را به عنوان پارامتر اول به کلاس <code>IPayZarinpal</code> بدهید.</p>
 
-<ol>
-<li>ست کردن تنظیمات دیتابیس</li>
-</ol>
-
-<p>حالا برای ست کردن تنظیمات دیتابیس در شیء ساخته شده، به صورت زیر کار میکنیم.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$zarinPay-&gt;setDB($server, $dbName, $username, $password);</span>
-</code></pre></div>
 <ol>
 <li>ارسال درخواست اتصال به درگاه زرین پال</li>
 </ol>
 
-<p>با استفاده از متد <code>sendPayRequest</code> میتوانید درخواست اتصال به زرین پال را بدهید. این متد دارای سه پارامتر است. پارامتر اول مبلغی است که میخواهید کاربر واریز کند (به تومان) و پارامتر دوم آدرسی است که میخواهید درگاه، کاربر را  پس از انجام عملیات به آن آدرس بازگشت بدهد و در پارامتر سوم آرایه ای از اطلاعات مختلفی مانند آدرس ایمیل، شماره موبایل و توضیحات را میگیرد.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$additionalData = array(</span>
-<span class="x">    &#39;email&#39; =&gt; &#39;email@gmail.com&#39;,</span>
-<span class="x">    &#39;mobile&#39; =&gt; &#39;09xxxxxxxxx&#39;,</span>
-<span class="x">    &#39;description&#39; =&gt; &#39;description&#39;</span>
-<span class="x">);</span>
-<span class="x">$zarinPay-&gt;sendPayRequest(4000, $callbackUrl, $additionalData);</span>
+<p>با استفاده از متد <code>sendPayRequest</code> میتوانید درخواست اتصال به زرین پال را بدهید. این متد دارای دو پارامتر است که تنها پارامتر اول اجباری است.</p>
+
+<p>پارامتر اول: مبلغی است که میخواهید کاربر واریز کند (به تومان).</p>
+
+<p>پارامتر دوم (اختیاری): آدرس بازگشتی. در صورتی که این پارامتر داده نشود، آدرس را از فایل تنظیمات میخواند.</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$zarinPay-&gt;sendPayRequest(4000, $callbackUrl);</span>
 </code></pre></div>
 <ol>
 <li>ریدایرکت کاربر به درگاه</li>
@@ -258,16 +274,21 @@
 <span class="x">    $errorNumber = $zarinPay-&gt;getStatusCode();</span>
 <span class="x">}</span>
 </code></pre></div>
+<p>در صورتی که میخواهید به زرین گیت ریدایرکت کنید پارامتر اول متد <code>redirectToBank</code> را <code>true</code> قرار دهید.</p>
+
 <h4 id="قدم-دوم:-گرفتن-جواب-از-درگاه-زرین-پال">قدم دوم: گرفتن جواب از درگاه زرین پال</h4>
 
 <p>پس از اتمام عملیات کاربر در درگاه، کاربر به آدرسی که ما در قدم اول مشخص کردیم منتقل میشود. حالا در این آدرس ما باید چک کنیم که آیا کاربر پرداخت را انجام داده است یا خیر؟</p>
 
 <ol>
-<li>ساخت شیء و ست کردن تنظیمات دیتابیس</li>
+<li>ساخت شیء از کلاس</li>
 </ol>
-
-<p>در ابتدا باید دو مرحله اول قدم اول را نیز در اینجا تکرار کنیم.</p>
-
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">use IPay\Zarinpal\IPayZarinpal;</span>
+<span class="x">.</span>
+<span class="x">.</span>
+<span class="x">.</span>
+<span class="x">$zarinPay = new IPayZarinpal($merchentId);</span>
+</code></pre></div>
 <ol>
 <li>چک کردن اینکه کاربر آیا پرداخت را انجام داده است یا خیر؟</li>
 </ol>
@@ -291,15 +312,6 @@
 </code></pre></div>
 <p>توسط دو قدم گفته شده در بالا میتوانید کل روند پرداخت درگاه زرین پال را انجام دهید.</p>
 
-<h4 id="متدهای-کمکی">متدهای کمکی</h4>
-
-<h4 id="متد-setdebugmode">متد setDebugMode</h4>
-
-<p>توسط این متد میتوانید مشخص کنید که آیا در حالت تست درگاه قرار دارید یا خیر؟ این متد فقط میتواند در قدم اول و بعد از دو مرحله اول صدا زده شود تا کارایی خود را نشان دهد. اگر این متد صدا زده بشود، اگر درگاه به هر خطایی در ارتباط با درگاه برخورد کند یک Exception برمیگرداند و شماره خطا و متن خطا بر اساس مستندات زرین پال را به شما نشان میدهد که در زمان توسعه درگاه میتواند کمک بزرگی به شما باشد. پارامتر اول این تابع میتواند مقدار ‘en’ یا ‘fa’ را بگیرد. که زبان متن خطا را مشخص میکند.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$zarinPay = new IPayZarinpal(&#39;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx);</span>
-<span class="x">$zarinPay-&gt;setDB(&#39;localhost&#39;, &#39;my_db&#39;, &#39;root&#39;, &#39;5d5sa6d&#39;);</span>
-<span class="x">$zarinPay-&gt;setDebugMode(&#39;fa&#39;);</span>
-</code></pre></div>
 
                     </div>
                 
